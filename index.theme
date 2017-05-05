@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=kuroi
+Name=spartan
 Comment=A pure black flat theme with emphasis on utility versus aesthetics
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=kuroi
-MetacityTheme=kuroi
+GtkTheme=spartan
+MetacityTheme=spartan
 IconTheme=Adwaita
 CursorTheme=Adwaita
 ButtonLayout=menu:minimize,maximize,close

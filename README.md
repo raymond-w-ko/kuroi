@@ -1,2 +1,2 @@
-# kuroi
-A pure black flat theme with emphasis on utility versus aesthetics
+# spartan
+A pure black, flat, spartan theme with emphasis on utility versus aesthetics
