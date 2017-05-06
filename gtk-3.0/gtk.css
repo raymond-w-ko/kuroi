@@ -1,0 +1,28 @@
+*
+{
+  padding: 0;
+  margin: 0;
+  
+  background-color: #000000;
+  color: #888;
+}
+
+*:hover
+{
+  background-color: #00ff00;
+}
+
+*:disabled {
+  -gtk-image-effect: dim;
+  color: #333;
+}
+
+button
+{
+  background-color: #00ff00;
+  border: 1px solid #ffffff;
+}
+
+entry
+{
+}
