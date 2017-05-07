@@ -47,8 +47,13 @@ headerbar,
 label,
 entry,
 cellview,
+treeview,
+textview,
 {
   color: $primary-color;
+  selection {
+    color: $fill-color;
+  }
 }
 
 button, radio, check,
@@ -73,6 +78,8 @@ button, radio, check,
   {
     color: #f00;
   }
+  &:checked:disabled,
+  &:checked:disabled label,
   &:checked:disabled {
     color: scale-color($fill-color, $red: -50%, $green: -50%, $blue: -50%);
   }
@@ -92,6 +99,12 @@ button
   min-width: 16px;
 }
 
+*:link {
+  label {
+    text-decoration: underline;
+  }
+}
+
 check,
 radio
 {
@@ -108,19 +121,16 @@ radio,
   border-radius: 50%;
 }
 
-treeview,
-list,
+paned,
+textview,
+switch,
 {
-
-  background-color: #f00;
-  color: #f00;
+  border-width: 1px;
 }
 
-row,
-row *,
-{
-  background-color: #f00;
-  color: #f00;
+slider {
+  border-width: 2px;
+  border-color: $fill-color;
 }
 
 /******************************************************************************
@@ -317,7 +327,43 @@ menubar menuitem
  * scrollbar
 ******************************************************************************/
 scrollbar {
-  min-width: 16px;
-  min-height: 16px;
-  background-color: #f0f;
+  button { border: none; }
+  trough {
+    border-width: 1px;
+    slider {
+      background-color: scale-color($fill-color, $red: -50%, $green: -50%, $blue: -50%);
+      border: 0;
+      min-height: 8px;
+      min-width: 8px;
+    }
+  }
+
+  &.vertical {
+    button {
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
+    }
+  }
+
+  &.horizontal {
+    button {
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-right-symbolic'); }
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-left-symbolic'); }
+    }
+  }
 }
+
+/******************************************************************************
+ * tree & list views
+******************************************************************************/
+treeview {
+  &:selected {
+    background-color: $fill-color;
+    color: #000;
+  }
+}
+
+row,
+{
+}
+

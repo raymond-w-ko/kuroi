@@ -19,8 +19,16 @@ headerbar {
 
 label,
 entry,
-cellview {
+cellview,
+treeview,
+textview {
   color: #888; }
+  label selection,
+  entry selection,
+  cellview selection,
+  treeview selection,
+  textview selection {
+    color: #ff0; }
 
 button:hover,
 button:hover label, radio:hover,
@@ -48,7 +56,10 @@ radio:checked:hover label, check:checked:hover,
 check:checked:hover label {
   color: #f00; }
 
-button:checked:disabled, radio:checked:disabled, check:checked:disabled {
+button:checked:disabled,
+button:checked:disabled label, button:checked:disabled, radio:checked:disabled,
+radio:checked:disabled label, radio:checked:disabled, check:checked:disabled,
+check:checked:disabled label, check:checked:disabled {
   color: olive; }
 
 button:indeterminate, radio:indeterminate, check:indeterminate {
@@ -62,6 +73,9 @@ button {
   min-height: 16px;
   min-width: 16px; }
 
+*:link label {
+  text-decoration: underline; }
+
 check,
 radio {
   background-color: #444;
@@ -74,15 +88,14 @@ radio {
 radio {
   border-radius: 50%; }
 
-treeview,
-list {
-  background-color: #f00;
-  color: #f00; }
+paned,
+textview,
+switch {
+  border-width: 1px; }
 
-row,
-row * {
-  background-color: #f00;
-  color: #f00; }
+slider {
+  border-width: 2px;
+  border-color: #ff0; }
 
 /******************************************************************************
  * entry and combobox
@@ -230,7 +243,32 @@ menubar menuitem {
 /******************************************************************************
  * scrollbar
 ******************************************************************************/
-scrollbar {
-  min-width: 16px;
-  min-height: 16px;
-  background-color: #f0f; }
+scrollbar button {
+  border: none; }
+
+scrollbar trough {
+  border-width: 1px; }
+  scrollbar trough slider {
+    background-color: olive;
+    border: 0;
+    min-height: 8px;
+    min-width: 8px; }
+
+scrollbar.vertical button.down {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+
+scrollbar.vertical button.up {
+  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+
+scrollbar.horizontal button.down {
+  -gtk-icon-source: -gtk-icontheme("pan-right-symbolic"); }
+
+scrollbar.horizontal button.up {
+  -gtk-icon-source: -gtk-icontheme("pan-left-symbolic"); }
+
+/******************************************************************************
+ * tree & list views
+******************************************************************************/
+treeview:selected {
+  background-color: #ff0;
+  color: #000; }
