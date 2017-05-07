@@ -1,48 +1,33 @@
 /******************************************************************************
  * defaults
 ******************************************************************************/
-*
-{
-  box-sizing: border-box:
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  
-  border-color: #888;
-  border-style: solid;
-}
-*, *:before, *:after
-{
-  box-sizing: inherit;
-}
 
-window,
-.background,
-frame
-{
-  background-color: #000;
-}
+$bg-color: #000;
+$primary-color: #888;
+$disabled-color: #444;
+$hover-color: #0f0;
+$pushed-color: #f00;
+$fill-color: #ff0;
 
-label,
-entry
-{
-  color: #888;
-}
-
-button:hover,
-radio:hover,
-radio:hover *,
-check:hover,
-check:hover *
-{
+@mixin hovered-element {
   background-color: #0f0;
   color: #000;
 }
-
-*:active
-{
+@mixin active-element {
   background-color: #f00;
   color: #000;
+}
+@mixin checked-element {
+  color: $fill-color;
+}
+
+*,
+{
+  padding: 0;
+  margin: 0;
+  
+  border-color: $primary-color;
+  border-style: solid;
 }
 
 *:disabled
@@ -51,23 +36,60 @@ check:hover *
   border-color: #444;
 }
 
+window,
+.background,
+frame,
+headerbar,
+{
+  background-color: $bg-color;
+}
+
+label,
+entry,
+cellview,
+{
+  color: $primary-color;
+}
+
+button, radio, check,
+{
+  &:hover,
+  &:hover label,
+  {
+    @include hovered-element;
+  }
+  &:active,
+  &:active label,
+  {
+    @include active-element;
+  }
+  &:checked,
+  &:checked label,
+  {
+    @include checked-element;
+  }
+  &:checked:hover,
+  &:checked:hover label,
+  {
+    color: #f00;
+  }
+  &:checked:disabled {
+    color: scale-color($fill-color, $red: -50%, $green: -50%, $blue: -50%);
+  }
+  // what is this state?
+  &:indeterminate {
+    color: #f0f;
+  }
+}
+
 button
 {
   border-width: 1px;
   margin-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
   min-height: 16px;
-}
-button:checked,
-button:checked label
-{
-  color: #000;
-  background-color: #ff0;
-}
-button:active,
-button:active label
-{
-  color: #000;
-  background-color: #f00;
+  min-width: 16px;
 }
 
 check,
@@ -76,27 +98,29 @@ radio
   background-color: #444;
   margin-left: 2px;
   margin-right: 2px;
-}
-check:disabled,
-radio:disabled
-{
-  background-color: #222;
+  &:disabled {
+    background-color: #222;
+  }
 }
 
 radio,
-button.radio
 {
   border-radius: 50%;
 }
-check:checked,
-radio:checked
+
+treeview,
+list,
 {
-  color: #ff0;
+
+  background-color: #f00;
+  color: #f00;
 }
-check:checked:disabled,
-radio:checked:disabled
+
+row,
+row *,
 {
-  color: #880;
+  background-color: #f00;
+  color: #f00;
 }
 
 /******************************************************************************
@@ -166,31 +190,47 @@ frame > border
 /******************************************************************************
  * progress bar and sliders
 ******************************************************************************/
+$slider-thickness: 6px;
 progressbar {
   font-size: 83%;
+  border-width: 0;
 }
-progressbar progress
+progress
 {
   background-color: #ff0;
-  height: 1px;
 }
 
-levelbar block {
-  min-width: 32px;
-  min-height: 4px;
+levelbar {
+  trough {
+    padding: 2px;
+  }
+  block {
+    min-width: $slider-thickness;
+    min-height: $slider-thickness;
+    border-width: 1px;
+    border-color: #0ff;
+    &.empty {
+      background-color: $bg-color;
+    }
+    &.low {
+      background-color: $bg-color;
+    }
+    &.high {
+      background-color: $fill-color;
+    }
+    &.full {
+      background-color: $fill-color;
+    }
+  }
 }
 
-levelbar.vertical block {
-  min-width: 4px;
-  min-height: 32px;
-}
-
-progressbar.vertical trough,
-levelbar.vertical trough,
-progressbar.horizontal trough,
-levelbar.horizontal trough
-{
-  background-color: #444;
+progressbar,
+levelbar {
+  &.vertical, &.horizontal {
+    trough {
+      background-color: #444;
+    }
+  }
 }
 
 /****************************************/
@@ -201,19 +241,24 @@ scale slider {
 scale {
   min-height: 16px;
   min-width: 16px;
-  padding: 5px;
-}
-scale slider {
-  min-width: 16px;
-  min-height: 16px;
-  margin: -6px;
-  border-radius: 50%;
-}
-scale trough
-{
-  background-color: #444;
-  min-width: 4px;
-  min-height: 4px;
+  trough
+  {
+    background-color: #444;
+    min-width: $slider-thickness;
+    min-height: $slider-thickness;
+  }
+  value {
+    color: $primary-color;
+  }
+  slider {
+    margin: -6px;
+    border-radius: 50%;
+  }
+  indicator {
+    color: $primary-color;
+    min-width: $slider-thickness;
+    min-height: $slider-thickness;
+  }
 }
 
 /******************************************************************************
@@ -223,13 +268,12 @@ notebook,
 tab
 {
   border-width: 1px;
-}
-tab:checked
-{
-  background-color: #ff0;
-}
-tab:checked label {
-  color: #000;
+
+  &:checked,
+  &:checked label {
+    background-color: #ff0;
+    color: #000;
+  }
 }
 
 /******************************************************************************
@@ -267,4 +311,13 @@ menubar menuitem
 {
   background-color: #000;
   border-width: 0;
+}
+
+/******************************************************************************
+ * scrollbar
+******************************************************************************/
+scrollbar {
+  min-width: 16px;
+  min-height: 16px;
+  background-color: #f0f;
 }
