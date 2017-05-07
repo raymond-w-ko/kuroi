@@ -1,28 +1,270 @@
+/******************************************************************************
+ * defaults
+******************************************************************************/
 *
 {
+  box-sizing: border-box:
   padding: 0;
   margin: 0;
+  border-radius: 0;
   
-  background-color: #000000;
+  border-color: #888;
+  border-style: solid;
+}
+*, *:before, *:after
+{
+  box-sizing: inherit;
+}
+
+window,
+.background,
+frame
+{
+  background-color: #000;
+}
+
+label,
+entry
+{
   color: #888;
 }
 
-*:hover
+button:hover,
+radio:hover,
+radio:hover *,
+check:hover,
+check:hover *
 {
-  background-color: #00ff00;
+  background-color: #0f0;
+  color: #000;
 }
 
-*:disabled {
-  -gtk-image-effect: dim;
-  color: #333;
+*:active
+{
+  background-color: #f00;
+  color: #000;
+}
+
+*:disabled
+{
+  color: #444;
+  border-color: #444;
 }
 
 button
 {
-  background-color: #00ff00;
-  border: 1px solid #ffffff;
+  border-width: 1px;
+  margin-bottom: 2px;
+  min-height: 16px;
+}
+button:checked,
+button:checked label
+{
+  color: #000;
+  background-color: #ff0;
+}
+button:active,
+button:active label
+{
+  color: #000;
+  background-color: #f00;
 }
 
-entry
+check,
+radio
 {
+  background-color: #444;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+check:disabled,
+radio:disabled
+{
+  background-color: #222;
+}
+
+radio,
+button.radio
+{
+  border-radius: 50%;
+}
+check:checked,
+radio:checked
+{
+  color: #ff0;
+}
+check:checked:disabled,
+radio:checked:disabled
+{
+  color: #880;
+}
+
+/******************************************************************************
+ * entry and combobox
+******************************************************************************/
+entry,
+combobox
+{
+  min-height: 16px;
+  margin-bottom: 2px;
+  border-width: 1px;
+}
+
+combobox button {
+  border-width: 0;
+}
+
+combobox entry
+{
+  border-width: 0;
+}
+
+combobox button.combo
+{
+  border-left-width: 1px;
+}
+
+combobox arrow
+{
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  color: #0f0;
+  min-height: 16px;
+  min-width: 16px;
+}
+
+/******************************************************************************
+ * Spinner
+******************************************************************************/
+@keyframes spin {
+  to {
+    -gtk-icon-transform: rotate(1turn);
+  }
+}
+spinner {
+  background-image: none;
+  opacity: 0;
+  -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
+}
+spinner:checked
+{
+  opacity: 1;
+animation: spin 1s linear infinite;
+}
+spinner:checked:disabled
+{
+  opacity: 0.5;
+}
+
+/******************************************************************************
+ * Frame
+******************************************************************************/
+frame > border
+{
+  border-width: 1px;
+}
+
+/******************************************************************************
+ * progress bar and sliders
+******************************************************************************/
+progressbar {
+  font-size: 83%;
+}
+progressbar progress
+{
+  background-color: #ff0;
+  height: 1px;
+}
+
+levelbar block {
+  min-width: 32px;
+  min-height: 4px;
+}
+
+levelbar.vertical block {
+  min-width: 4px;
+  min-height: 32px;
+}
+
+progressbar.vertical trough,
+levelbar.vertical trough,
+progressbar.horizontal trough,
+levelbar.horizontal trough
+{
+  background-color: #444;
+}
+
+/****************************************/
+
+scale slider {
+  background-color: #0f0;
+}
+scale {
+  min-height: 16px;
+  min-width: 16px;
+  padding: 5px;
+}
+scale slider {
+  min-width: 16px;
+  min-height: 16px;
+  margin: -6px;
+  border-radius: 50%;
+}
+scale trough
+{
+  background-color: #444;
+  min-width: 4px;
+  min-height: 4px;
+}
+
+/******************************************************************************
+ * tab
+******************************************************************************/
+notebook,
+tab
+{
+  border-width: 1px;
+}
+tab:checked
+{
+  background-color: #ff0;
+}
+tab:checked label {
+  color: #000;
+}
+
+/******************************************************************************
+ * tooltip
+******************************************************************************/
+tooltip {
+  border-color: #008;
+  border-width: 1px;
+}
+
+/******************************************************************************
+ * menu
+******************************************************************************/
+menubar,
+.menubar,
+menuitem
+{
+  min-height: 16px;
+}
+
+menubar,
+.menubar
+{
+  border-width: 1px;
+}
+
+menuitem:hover,
+menuitem:hover label
+{
+  background-color: #0f0;
+  color: #000;
+}
+
+menubar menuitem
+{
+  background-color: #000;
+  border-width: 0;
 }
