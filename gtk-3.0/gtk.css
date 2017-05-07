@@ -1,0 +1,236 @@
+/******************************************************************************
+ * defaults
+******************************************************************************/
+* {
+  padding: 0;
+  margin: 0;
+  border-color: #888;
+  border-style: solid; }
+
+*:disabled {
+  color: #444;
+  border-color: #444; }
+
+window,
+.background,
+frame,
+headerbar {
+  background-color: #000; }
+
+label,
+entry,
+cellview {
+  color: #888; }
+
+button:hover,
+button:hover label, radio:hover,
+radio:hover label, check:hover,
+check:hover label {
+  background-color: #0f0;
+  color: #000; }
+
+button:active,
+button:active label, radio:active,
+radio:active label, check:active,
+check:active label {
+  background-color: #f00;
+  color: #000; }
+
+button:checked,
+button:checked label, radio:checked,
+radio:checked label, check:checked,
+check:checked label {
+  color: #ff0; }
+
+button:checked:hover,
+button:checked:hover label, radio:checked:hover,
+radio:checked:hover label, check:checked:hover,
+check:checked:hover label {
+  color: #f00; }
+
+button:checked:disabled, radio:checked:disabled, check:checked:disabled {
+  color: olive; }
+
+button:indeterminate, radio:indeterminate, check:indeterminate {
+  color: #f0f; }
+
+button {
+  border-width: 1px;
+  margin-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  min-height: 16px;
+  min-width: 16px; }
+
+check,
+radio {
+  background-color: #444;
+  margin-left: 2px;
+  margin-right: 2px; }
+  check:disabled,
+  radio:disabled {
+    background-color: #222; }
+
+radio {
+  border-radius: 50%; }
+
+treeview,
+list {
+  background-color: #f00;
+  color: #f00; }
+
+row,
+row * {
+  background-color: #f00;
+  color: #f00; }
+
+/******************************************************************************
+ * entry and combobox
+******************************************************************************/
+entry,
+combobox {
+  min-height: 16px;
+  margin-bottom: 2px;
+  border-width: 1px; }
+
+combobox button {
+  border-width: 0; }
+
+combobox entry {
+  border-width: 0; }
+
+combobox button.combo {
+  border-left-width: 1px; }
+
+combobox arrow {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  color: #0f0;
+  min-height: 16px;
+  min-width: 16px; }
+
+/******************************************************************************
+ * Spinner
+******************************************************************************/
+@keyframes spin {
+  to {
+    -gtk-icon-transform: rotate(1turn); } }
+
+spinner {
+  background-image: none;
+  opacity: 0;
+  -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
+
+spinner:checked {
+  opacity: 1;
+  animation: spin 1s linear infinite; }
+
+spinner:checked:disabled {
+  opacity: 0.5; }
+
+/******************************************************************************
+ * Frame
+******************************************************************************/
+frame > border {
+  border-width: 1px; }
+
+/******************************************************************************
+ * progress bar and sliders
+******************************************************************************/
+progressbar {
+  font-size: 83%;
+  border-width: 0; }
+
+progress {
+  background-color: #ff0; }
+
+levelbar trough {
+  padding: 2px; }
+
+levelbar block {
+  min-width: 6px;
+  min-height: 6px;
+  border-width: 1px;
+  border-color: #0ff; }
+  levelbar block.empty {
+    background-color: #000; }
+  levelbar block.low {
+    background-color: #000; }
+  levelbar block.high {
+    background-color: #ff0; }
+  levelbar block.full {
+    background-color: #ff0; }
+
+progressbar.vertical trough, progressbar.horizontal trough,
+levelbar.vertical trough,
+levelbar.horizontal trough {
+  background-color: #444; }
+
+/****************************************/
+scale slider {
+  background-color: #0f0; }
+
+scale {
+  min-height: 16px;
+  min-width: 16px; }
+  scale trough {
+    background-color: #444;
+    min-width: 6px;
+    min-height: 6px; }
+  scale value {
+    color: #888; }
+  scale slider {
+    margin: -6px;
+    border-radius: 50%; }
+  scale indicator {
+    color: #888;
+    min-width: 6px;
+    min-height: 6px; }
+
+/******************************************************************************
+ * tab
+******************************************************************************/
+notebook,
+tab {
+  border-width: 1px; }
+  notebook:checked,
+  notebook:checked label,
+  tab:checked,
+  tab:checked label {
+    background-color: #ff0;
+    color: #000; }
+
+/******************************************************************************
+ * tooltip
+******************************************************************************/
+tooltip {
+  border-color: #008;
+  border-width: 1px; }
+
+/******************************************************************************
+ * menu
+******************************************************************************/
+menubar,
+.menubar,
+menuitem {
+  min-height: 16px; }
+
+menubar,
+.menubar {
+  border-width: 1px; }
+
+menuitem:hover,
+menuitem:hover label {
+  background-color: #0f0;
+  color: #000; }
+
+menubar menuitem {
+  background-color: #000;
+  border-width: 0; }
+
+/******************************************************************************
+ * scrollbar
+******************************************************************************/
+scrollbar {
+  min-width: 16px;
+  min-height: 16px;
+  background-color: #f0f; }
