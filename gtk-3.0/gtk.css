@@ -11,6 +11,10 @@
   color: #444;
   border-color: #444; }
 
+*:selected {
+  background-color: #ff0;
+  color: #000; }
+
 window,
 .background,
 frame,
@@ -272,9 +276,5 @@ scrollbar.horizontal button.up {
 /******************************************************************************
  * tree & list views
 ******************************************************************************/
-treeview:selected {
-  background-color: #ff0;
-  color: #000; }
-
 @define-color selected_bg_color #ffff00;
 @define-color selected_fg_color #000000;

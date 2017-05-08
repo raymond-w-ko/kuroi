@@ -36,6 +36,11 @@ $fill-color: #ff0;
   border-color: #444;
 }
 
+*:selected {
+  background-color: $fill-color;
+  color: #000;
+}
+
 window,
 .background,
 frame,
@@ -361,10 +366,6 @@ scrollbar {
  * tree & list views
 ******************************************************************************/
 treeview {
-  &:selected {
-    background-color: $fill-color;
-    color: #000;
-  }
 }
 
 row,
