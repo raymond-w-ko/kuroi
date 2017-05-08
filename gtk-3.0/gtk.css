@@ -30,6 +30,9 @@ textview {
   textview selection {
     color: #ff0; }
 
+separator {
+  background-color: #888; }
+
 button:hover,
 button:hover label, radio:hover,
 radio:hover label, check:hover,
@@ -89,7 +92,7 @@ radio {
   border-radius: 50%; }
 
 paned,
-textview,
+textview text,
 switch {
   border-width: 1px; }
 
@@ -272,3 +275,6 @@ scrollbar.horizontal button.up {
 treeview:selected {
   background-color: #ff0;
   color: #000; }
+
+@define-color selected_bg_color #ffff00;
+@define-color selected_fg_color #000000;
