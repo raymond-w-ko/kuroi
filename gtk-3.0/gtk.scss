@@ -3,9 +3,10 @@
 ******************************************************************************/
 
 $bg-color: #000;
-$primary-color: #888;
+$primary-color: #aaa;
 $disabled-color: #444;
 $hover-color: #0f0;
+$interactive-subtle-color: #080;
 $pushed-color: #f00;
 $fill-color: #ff0;
 
@@ -19,6 +20,18 @@ $fill-color: #ff0;
 }
 @mixin checked-element {
   color: $fill-color;
+}
+@mixin text-element {
+  color: $primary-color;
+  background-color: $bg-color;
+}
+
+// This wildcard seems unavoidable, need to investigate.
+// Wildcards are bad and troublesome, use them with care,
+// or better, just don't.
+// Everytime a wildcard is used a kitten dies, painfully.
+*:disabled {
+  -gtk-icon-effect: dim;
 }
 
 *,
@@ -61,8 +74,23 @@ textview,
   }
 }
 
+textview > text {
+  @include text-element;
+}
+
 separator {
-  background-color: $primary-color;
+  min-width: 1px;
+  min-height: 1px;
+  -gtk-icon-source: none;
+  border-style: none;
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, $primary-color, #000);
+  background-size: 1px 1px;
+}
+paned>separator {
+  background-image: linear-gradient(to bottom, $interactive-subtle-color, #000);
+  min-width: 4px;
+  min-height: 4px;
 }
 
 button, radio, check,

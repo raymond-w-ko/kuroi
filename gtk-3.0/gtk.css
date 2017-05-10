@@ -1,10 +1,13 @@
 /******************************************************************************
  * defaults
 ******************************************************************************/
+*:disabled {
+  -gtk-icon-effect: dim; }
+
 * {
   padding: 0;
   margin: 0;
-  border-color: #888;
+  border-color: #aaa;
   border-style: solid; }
 
 *:disabled {
@@ -26,7 +29,7 @@ entry,
 cellview,
 treeview,
 textview {
-  color: #888; }
+  color: #aaa; }
   label selection,
   entry selection,
   cellview selection,
@@ -34,8 +37,23 @@ textview {
   textview selection {
     color: #ff0; }
 
+textview > text {
+  color: #aaa;
+  background-color: #000; }
+
 separator {
-  background-color: #888; }
+  min-width: 1px;
+  min-height: 1px;
+  -gtk-icon-source: none;
+  border-style: none;
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, #aaa, #000);
+  background-size: 1px 1px; }
+
+paned > separator {
+  background-image: linear-gradient(to bottom, #080, #000);
+  min-width: 4px;
+  min-height: 4px; }
 
 button:hover,
 button:hover label, radio:hover,
@@ -197,12 +215,12 @@ scale {
     min-width: 6px;
     min-height: 6px; }
   scale value {
-    color: #888; }
+    color: #aaa; }
   scale slider {
     margin: -6px;
     border-radius: 50%; }
   scale indicator {
-    color: #888;
+    color: #aaa;
     min-width: 6px;
     min-height: 6px; }
 
