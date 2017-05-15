@@ -50,8 +50,8 @@ $fill-color: #ff0;
 }
 
 *:selected {
-  background-color: $fill-color;
-  color: #000;
+  // background-color: $fill-color;
+  // color: #000;
 }
 
 window,
@@ -65,7 +65,6 @@ headerbar,
 label,
 entry,
 cellview,
-treeview,
 textview,
 {
   color: $primary-color;
@@ -393,7 +392,12 @@ scrollbar {
 /******************************************************************************
  * tree & list views
 ******************************************************************************/
-treeview {
+treeview.view {
+  &:selected {
+    &, &:focus {
+      border: 1px solid #ff0;
+    }
+  }
 }
 
 row,
