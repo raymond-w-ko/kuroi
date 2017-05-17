@@ -8,7 +8,9 @@
   padding: 0;
   margin: 0;
   border-color: #aaa;
-  border-style: solid; }
+  border-style: solid;
+  outline-color: #ff0;
+  outline-style: solid; }
 
 *:disabled {
   color: #444;
@@ -18,11 +20,12 @@ window,
 .background,
 frame,
 headerbar {
-  background-color: #000; }
+  background-color: #000000; }
 
 label,
 entry,
 textview {
+  background-color: #000000;
   color: #aaa; }
   label selection,
   entry selection,
@@ -31,7 +34,7 @@ textview {
 
 textview > text {
   color: #aaa;
-  background-color: #000; }
+  background-color: #000000; }
 
 separator {
   min-width: 1px;
@@ -182,9 +185,9 @@ levelbar block {
   border-width: 1px;
   border-color: #0ff; }
   levelbar block.empty {
-    background-color: #000; }
+    background-color: #000000; }
   levelbar block.low {
-    background-color: #000; }
+    background-color: #000000; }
   levelbar block.high {
     background-color: #ff0; }
   levelbar block.full {
@@ -294,6 +297,10 @@ scrollbar.horizontal button.up {
 treeview.view:selected, treeview.view:selected:focus {
   border: 1px solid #ff0; }
 
+row:selected, row:selected > label {
+  background-color: #ff0;
+  color: #000; }
+
 cellview:hover {
   background-color: #0f0;
   color: #000; }
@@ -305,5 +312,28 @@ tab > label {
   margin-left: 4px;
   margin-right: 4px; }
 
+@define-color theme_fg_color #ffff00;
+@define-color theme_text_color #aaaaaa;
+@define-color theme_bg_color #000000;
+@define-color theme_base_color #ffff00;
+@define-color theme_selected_bg_color #ffff00;
+@define-color theme_selected_fg_color #00ffff;
+@define-color fg_color #ffff00;
+@define-color text_color #aaaaaa;
+@define-color bg_color #000000;
+@define-color base_color #ffff00;
 @define-color selected_bg_color #ffff00;
-@define-color selected_fg_color #000000;
+@define-color selected_fg_color #00ffff;
+@define-color insensitive_bg_color #000000;
+@define-color insensitive_fg_color #888800;
+@define-color insensitive_base_color #ffff00;
+@define-color theme_unfocused_fg_color #ffff00;
+@define-color theme_unfocused_text_color #aaaaaa;
+@define-color theme_unfocused_bg_color #000000;
+@define-color theme_unfocused_base_color #ffff00;
+@define-color borders #888888;
+@define-color unfocused_borders #888888;
+@define-color warning_color #ffff00;
+@define-color error_color #00ff00;
+@define-color success_color #00ffff;
+@define-color content_view_bg #ffff00;

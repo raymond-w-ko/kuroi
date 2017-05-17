@@ -2,7 +2,19 @@
  * defaults
 ******************************************************************************/
 
-$bg-color: #000;
+$bg-color: #000000;
+$fg-color: #ffff00;
+$text-color: #aaaaaa;
+$base-color: #ffff00;
+$selected-bg-color: #ffff00;
+$selected-fg-color: #00ffff;
+$insensitive-bg-color: #000000;
+$insensitive-fg-color: #888800;
+$borders-color: #888888;
+$warning-color: #ffff00;
+$error-color: #00ff00;
+$success-color: #00ffff;
+
 $primary-color: #aaa;
 $disabled-color: #444;
 $hover-color: #0f0;
@@ -41,6 +53,8 @@ $fill-color: #ff0;
   
   border-color: $primary-color;
   border-style: solid;
+  outline-color: $fill-color;
+  outline-style: solid;
 }
 
 *:disabled
@@ -66,6 +80,7 @@ label,
 entry,
 textview,
 {
+  background-color: $bg-color;
   color: $primary-color;
   selection {
     color: $fill-color;
@@ -407,8 +422,12 @@ treeview.view {
   }
 }
 
-row,
+row:selected,
 {
+  &, & > label {
+    background-color: $fill-color;
+    color: #000;
+  }
 }
 
 cellview {
@@ -425,5 +444,50 @@ tab > label {
   margin-right: 4px;
 }
 
-@define-color selected_bg_color #{"" + "#ffff00"};
-@define-color selected_fg_color #{"" + "#000000"};
+// GTK NAMED COLORS
+//apps rely on some named colors to be exported
+
+// Sass thinks we're using the colors in the variables as strings and may shoot
+// warning, it's innocuous and can be defeated by using "" + $var
+@define-color theme_fg_color #{"" + $fg_color};
+@define-color theme_text_color #{"" + $text_color};
+@define-color theme_bg_color #{"" + $bg_color};
+@define-color theme_base_color #{"" + $base_color};
+@define-color theme_selected_bg_color #{"" + $selected_bg_color};
+@define-color theme_selected_fg_color #{"" + $selected_fg_color};
+@define-color fg_color #{"" + $fg_color};
+@define-color text_color #{"" + $text_color};
+@define-color bg_color #{"" + $bg_color};
+@define-color base_color #{"" + $base_color};
+@define-color selected_bg_color #{"" + $selected_bg_color};
+@define-color selected_fg_color #{"" + $selected_fg_color};
+@define-color insensitive_bg_color #{"" + $insensitive_bg_color};
+@define-color insensitive_fg_color #{"" + $insensitive_fg_color};
+@define-color insensitive_base_color #{"" + $base_color};
+@define-color theme_unfocused_fg_color #{"" + $fg_color};
+@define-color theme_unfocused_text_color #{"" + $text_color};
+@define-color theme_unfocused_bg_color #{"" + $bg_color};
+@define-color theme_unfocused_base_color #{"" + $base_color};
+@define-color borders #{"" + $borders_color};
+@define-color unfocused_borders #{"" + $borders_color};
+
+@define-color warning_color #{"" + $warning_color};
+@define-color error_color #{"" + $error_color};
+@define-color success_color #{"" + $success_color};
+
+//WM
+
+// @define-color wm_title #{"" + $wm_title};
+// @define-color wm_unfocused_title #{"" + $wm_unfocused_title};
+// @define-color wm_title_highlight #{"" + $wm_title_highlight};
+// @define-color wm_title_highlight_dark #{"" + $wm_title_highlight_dark};
+// @define-color wm_title_shadow #{"" + $wm_title_shadow};
+
+// @define-color metacity_bg_a #{"" + $metacity_bg_a};
+// @define-color metacity_bg_b #{"" + $metacity_bg_b};
+
+// @define-color wm_border #{"" + $wm_border};
+
+//FIXME this is really an API
+
+@define-color content_view_bg #{"" + $base_color};
